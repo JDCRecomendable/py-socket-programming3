@@ -18,7 +18,7 @@ class ChatServer(object):
         self.clientmap = {}
         self.outputs = []  # list output sockets
 
-        self.context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+        self.context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2, ssl.CERT_NONE)
         self.context.load_cert_chain(certfile="cert.pem", keyfile="cert.pem")
         self.context.load_verify_locations('cert.pem')
         self.context.set_ciphers('AES128-SHA')
